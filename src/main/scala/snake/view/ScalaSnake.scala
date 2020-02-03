@@ -46,10 +46,10 @@ object SimulateMove extends JSApp {
     dom.document.onkeypress = (e: dom.KeyboardEvent) => {
       dom.console.log(e.key)
       e.key match {
-        case "ArrowLeft" => if (!pause && renderPositions.head.direction != "Right") direction = "Left"
-        case "ArrowRight" => if (!pause && renderPositions.head.direction != "Left") direction = "Right"
-        case "ArrowUp" => if (!pause && renderPositions.head.direction != "Down") direction = "Up"
-        case "ArrowDown" => if (!pause && renderPositions.head.direction != "Up") direction = "Down"
+        case "ArrowLeft" | "a" => if (!pause && renderPositions.head.direction != "Right") direction = "Left"
+        case "ArrowRight" | "d" => if (!pause && renderPositions.head.direction != "Left") direction = "Right"
+        case "ArrowUp" | "w" => if (!pause && renderPositions.head.direction != "Down") direction = "Up"
+        case "ArrowDown" | "s" => if (!pause && renderPositions.head.direction != "Up") direction = "Down"
         case "Escape" => pause = !pause
         case " " => pause = !pause
         case "r" if (pause || gameOver) => {
